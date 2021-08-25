@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Finance daily news</string>
+    <string name="price_in_rub_template"> %.2f RUB</string>
+    <string name="diff_template">%.3f</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="find_out_more">Find out more</string>
+</resources>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="newsItem"
+            type="com.example.epoxytest.models.NewsItem" />
+        <variable
+            name="listener"
+            type="com.example.epoxytest.fragments.OnNewsItemClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardElevation="10dp"
+        android:onClick="@{() -> listener.onNewsClick(newsItem)}"
+        android:layout_marginHorizontal="4dp"
+        android:layout_marginVertical="2dp"
+        app:cardBackgroundColor="#121212"
+        app:cardCornerRadius="5dp"
+        >
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/news_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/ic_baseline_image_24"
+                app:imageUrl="@{newsItem.imgUrl}"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/news_title"
+                android:layout_width="0dp"
+                android:layout_marginHorizontal="8dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/news_image"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{newsItem.trimmedTitle}"
+                android:textColor="@color/white"
+                />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                app:layout_constraintStart_toEndOf="@id/news_image"
+                app:layout_constraintTop_toBottomOf="@id/news_title"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@{newsItem.trimmedAuthor}"
+                />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+</layout>

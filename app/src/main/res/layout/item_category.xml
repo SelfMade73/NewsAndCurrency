@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="items"
+            type="com.example.epoxytest.models.Categories" />
+        <variable
+            name="onChangeListener"
+            type="android.view.View.OnLayoutChangeListener" />
+    </data>
+    <HorizontalScrollView
+        android:id="@+id/horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:overScrollMode="never"
+        android:paddingVertical="4dp"
+        android:scrollbars="none">
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/chip_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:animationCache="true"
+        android:animateLayoutChanges="false"
+        app:insert="@{items.categories}"
+        app:onCheckedChangeListener="@{onChangeListener}"
+        app:singleLine="true"
+        />
+    </HorizontalScrollView>
+</layout>
